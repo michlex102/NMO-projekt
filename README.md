@@ -61,24 +61,29 @@ Nasz model pokazuje, jak – na podstawie **przeszłych wyników** – można do
 ```r
 population <- matrix(runif(pop_size*n*cel) <= 0, 
                      nrow = pop_size, ncol = n*cel)
+```
 #### ✅ NOWE (działające):
+```r
 population <- matrix(sample(c(0,1), pop_size * n * cel, replace = TRUE),
                      nrow = pop_size, ncol = n * cel)
-Dlaczego?
+```
+### Dlaczego?
 Poprzednia wersja generowała niemal wyłącznie FALSE, co skutkowało populacją pełną zer i brakiem różnorodności. Nowa wersja losuje prawdziwe binarne wartości (0/1) — zgodnie z zasadą działania GA.
 
 ### 2. ⚙️ Poprawa funkcji bin2int
 
 ### ⛔ STARE:
+```r
 bin2int <- function(x) sum(2^(which(rev(x))-1))
-
+```
 ### ✅ NOWE:
+```r
 bin2int <- function(x) {
   x <- as.logical(x)
   idx <- which(rev(x))
   if (length(idx) == 0) return(0)
   sum(2^(idx - 1))
 }
-
-Dlaczego?
+```
+### Dlaczego?
 Poprzednia wersja zakładała, że x to wektor logiczny. W praktyce x pochodzi z population i może zawierać liczby (0, 1, NA), co powodowało błędy. Nowa wersja konwertuje do logicznego typu i działa stabilnie w każdej sytuacji.
