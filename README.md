@@ -18,7 +18,8 @@
 ## 📈 Sens i zastosowanie
 
 Nasz model pokazuje, jak – na podstawie **przeszłych wyników** – można dobrać udziały poszczególnych aktywów, aby portfel był jak najbardziej opłacalny względem ponoszonego ryzyka.
-
+Aby obliczyć oczekiwany roczny zwrot portfela, najpierw wyznaczany jest jego dzienny zwrot dla każdego dnia historycznego (jako suma: wagi × zwroty aktywów), a następnie liczona jest 
+średnia dzienna stopa zwrotu i przeskalowywana do wartości rocznej przez pomnożenie przez 252 dni giełdowe.
 > ℹ️ Jest to **optymalizacja oparta na danych historycznych** — nie gwarantuje, że w przyszłości portfel będzie równie dobry. Można ją traktować jako **symulację lub narzędzie wspomagające decyzję**.  
 > W praktyce inwestycyjnej zwykle stosuje się **dodatkowe ograniczenia, aktualizacje i rebalansowanie**.
 
